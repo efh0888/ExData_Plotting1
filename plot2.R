@@ -1,4 +1,4 @@
-setwd("C:/Users/eric.hopkins/Desktop/MOOCs and other courses/JHU Data Science Coursera/Exploratory Data Analysis/ExData_Plotting1")
+setwd("ExData_Plotting1")
 
 power <- read.table("household_power_consumption.txt",
                     sep = ";", 
