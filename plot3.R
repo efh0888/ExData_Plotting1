@@ -25,12 +25,18 @@ power$Sub_metering_1 <- as.numeric(power$Sub_metering_1)
 power$Sub_metering_2 <- as.numeric(power$Sub_metering_2)
 power$Sub_metering_3 <- as.numeric(power$Sub_metering_3)
 
+
+png(file = 'plot3.png', 
+    width = 480, 
+    height = 480,
+    units = "px")
+
 plot(x = power$Date_Time,
      y = power$Sub_metering_1,
      col = "black",
      type = "l",
      axes = FALSE,
-     ylab = "Energy Sub metering",
+     ylab = "Energy sub metering",
      xlab = "")
 lines(power$Date_Time, power$Sub_metering_2, col = "red")
 lines(power$Date_Time, power$Sub_metering_3, col = "blue")
@@ -48,9 +54,5 @@ axis.POSIXct(side = 1,
 
 axis(side = 2, at = seq(0, 30, 10))
 
-dev.copy(device = png, 
-         file = 'plot3.png', 
-         width = 480, 
-         height = 480,
-         units = "px")
+
 dev.off()
