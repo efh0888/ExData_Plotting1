@@ -5,10 +5,6 @@ power <- read.table("household_power_consumption.txt",
                     header = TRUE, 
                     stringsAsFactors = FALSE)
 
-# look at structure of data 
-dim(power)
-str(power)
-
 
 
 # subset to just two desired days
@@ -19,13 +15,13 @@ power <- power[power$Date == "1/2/2007" |
 power$Date_Time <- paste0(power$Date, " ", power$Time)
 power$Date_Time <- strptime(power$Date_Time, "%d/%m/%Y %H:%M:%S")
 
-# convert date and time to appropriate types
+# convert to numeric
 power$Global_active_power <- as.numeric(power$Global_active_power)
 power$Sub_metering_1 <- as.numeric(power$Sub_metering_1)
 power$Sub_metering_2 <- as.numeric(power$Sub_metering_2)
 power$Sub_metering_3 <- as.numeric(power$Sub_metering_3)
 
-
+# save directly to png; otherwise legend will be distorted
 png(file = 'plot3.png', 
     width = 480, 
     height = 480,

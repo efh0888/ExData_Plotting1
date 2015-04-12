@@ -13,7 +13,7 @@ str(power)
 power <- power[power$Date == "1/2/2007" |
                power$Date == "2/2/2007",]
 
-# convert date and time to appropriate types
+# convert to numeric
 power$Global_active_power <- as.numeric(power$Global_active_power)
 
 hist(x = power$Global_active_power, 
